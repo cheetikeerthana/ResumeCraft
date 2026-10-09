@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Preview & Export — ResumeCraft</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-light">
+
+  <!-- Control Header (Hidden during print) -->
+  <header class="navbar navbar-resumecraft sticky-top border-bottom py-2 bg-white no-print">
+    <div class="container-fluid px-lg-4">
+      <div class="d-flex align-items-center gap-3">
+        <a href="/dashboard.html" class="btn btn-sm btn-outline-secondary">
+          <i class="bi bi-arrow-left me-1"></i>Dashboard
+        </a>
+        <div class="fw-bold fs-6 text-navy" id="preview-title-display">
+          Resume Preview
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center gap-2 flex-wrap">
+        <div class="d-flex align-items-center gap-1 me-2">
+          <label class="small fw-semibold text-muted">Layout:</label>
+          <select id="preview-template-select" class="form-select form-select-sm" style="width: 140px;">
+            <option value="modern">Modern</option>
+            <option value="professional">Professional</option>
+            <option value="minimal">Minimal</option>
+            <option value="ats">ATS-Friendly</option>
+          </select>
+        </div>
+
+        <a id="btn-edit-builder" href="#" class="btn btn-sm btn-outline-primary">
+          <i class="bi bi-pencil me-1"></i>Edit in Builder
+        </a>
+        <button id="btn-print-resume" class="btn btn-sm btn-outline-dark">
+          <i class="bi bi-printer me-1"></i>Print A4
+        </button>
+        <a id="btn-download-pdf-preview" href="#" class="btn btn-sm btn-success">
+          <i class="bi bi-file-earmark-pdf-fill me-1"></i>Download PDF
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-4">
+    <!-- Notice Banner (Hidden during print) -->
+    <div class="alert alert-light border small text-muted d-flex justify-content-between align-items-center mb-3 no-print">
+      <div>
+        <i class="bi bi-info-circle me-1 text-primary"></i>
+        Formatted for standard <strong>A4 Portrait paper (210 x 297 mm)</strong>. Download the vector PDF or use browser print.
+      </div>
+      <span class="badge bg-success-subtle text-success">ATS-Ready Format</span>
+    </div>
+
+    <!-- The Printable Resume Sheet -->
+    <div id="preview-sheet" class="resume-paper template-modern shadow">
+      <!-- Populated by resume-preview.js -->
+    </div>
+  </main>
+
+  <footer class="text-center text-muted small py-3 mt-5 no-print">
+    &copy; 2026 ResumeCraft &bull; College Web Technologies Project
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/resume-preview.js"></script>
+</body>
+</html>

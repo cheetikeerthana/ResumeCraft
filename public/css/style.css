@@ -1,0 +1,446 @@
+/* ====================================================================
+   ResumeCraft — Comprehensive Design System & Stylesheet
+   Color Palette: Deep Navy (#0f172a, #1e3a8a), Royal Blue (#2563eb),
+   Light Sky (#e0f2fe, #f0f9ff), Subtle Purple (#7c3aed), Clean Slate.
+   ==================================================================== */
+
+:root {
+  --primary-navy: #0f172a;
+  --secondary-navy: #1e3a8a;
+  --accent-blue: #2563eb;
+  --accent-blue-hover: #1d4ed8;
+  --accent-purple: #7c3aed;
+  --bg-light: #f8fafc;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --text-light: #f1f5f9;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --info-color: #0ea5e9;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+}
+
+/* Base resets & typography */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-blue);
+  transition: color 0.15s ease-in-out;
+}
+
+a:hover {
+  color: var(--accent-blue-hover);
+}
+
+/* Navbar */
+.navbar-resumecraft {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  padding: 0.75rem 0;
+}
+
+.navbar-brand-logo {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--secondary-navy) !important;
+  letter-spacing: -0.02em;
+}
+
+.brand-icon {
+  background: linear-gradient(135deg, var(--secondary-navy), var(--accent-blue));
+  color: white;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  margin-right: 0.5rem;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+}
+
+.brand-accent {
+  color: var(--accent-blue);
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--text-dark) !important;
+  padding: 0.5rem 0.85rem !important;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease-in-out;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent-blue) !important;
+  background-color: #f1f5f9;
+}
+
+/* Buttons */
+.btn-resumecraft-primary {
+  background: linear-gradient(135deg, var(--secondary-navy), var(--accent-blue));
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 0.55rem 1.25rem;
+  box-shadow: 0 2px 4px rgba(30, 58, 138, 0.2);
+  transition: all 0.2s ease;
+}
+
+.btn-resumecraft-primary:hover {
+  background: linear-gradient(135deg, #172554, #1d4ed8);
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(30, 58, 138, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-resumecraft-outline {
+  border: 1.5px solid var(--accent-blue);
+  color: var(--accent-blue);
+  background: transparent;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.btn-resumecraft-outline:hover {
+  background-color: var(--accent-blue);
+  color: #ffffff;
+}
+
+/* Cards */
+.card-custom {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-custom:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Hero Section */
+.hero-section {
+  background: radial-gradient(circle at top right, #e0f2fe 0%, #f8fafc 60%);
+  padding: 4.5rem 0 3.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e0f2fe;
+  color: var(--accent-blue);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--primary-navy);
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Dashboard Stats */
+.stat-card {
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.stat-icon.blue { background: #dbeafe; color: #1d4ed8; }
+.stat-icon.green { background: #d1fae5; color: #047857; }
+.stat-icon.purple { background: #ede9fe; color: #6d28d9; }
+.stat-icon.amber { background: #fef3c7; color: #b45309; }
+
+/* Status Badges */
+.badge-status {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 50px;
+}
+.badge-status.Saved { background: #f1f5f9; color: #475569; }
+.badge-status.Applied { background: #e0f2fe; color: #0284c7; }
+.badge-status.Interview { background: #ede9fe; color: #7c3aed; }
+.badge-status.Offer { background: #dcfce7; color: #16a34a; }
+.badge-status.Rejected { background: #fee2e2; color: #dc2626; }
+
+/* Resume Sheet / Canvas */
+.resume-paper {
+  background: #ffffff;
+  width: 100%;
+  max-width: 800px;
+  min-height: 1050px;
+  margin: 0 auto;
+  padding: 40px 48px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---------------------------------------------------------
+   TEMPLATES STYLES
+   --------------------------------------------------------- */
+
+/* Template 1: MODERN */
+.template-modern {
+  border-top: 6px solid var(--secondary-navy);
+}
+.template-modern .resume-name {
+  color: var(--secondary-navy);
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+.template-modern .resume-title {
+  color: var(--accent-blue);
+  font-size: 15px;
+  font-weight: 600;
+}
+.template-modern .section-heading {
+  color: var(--secondary-navy);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 4px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+.template-modern .skill-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
+/* Template 2: PROFESSIONAL */
+.template-professional {
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+.template-professional .resume-name {
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.template-professional .resume-title {
+  color: #334155;
+  font-size: 14px;
+  text-align: center;
+  font-style: italic;
+}
+.template-professional .contact-line {
+  text-align: center;
+  font-size: 12px;
+  color: #475569;
+  border-bottom: 1px solid #94a3b8;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+.template-professional .section-heading {
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid #94a3b8;
+  padding-bottom: 3px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+/* Template 3: MINIMAL */
+.template-minimal {
+  font-family: 'Inter', sans-serif;
+  color: #27272a;
+}
+.template-minimal .resume-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #18181b;
+  letter-spacing: -0.01em;
+}
+.template-minimal .resume-title {
+  font-size: 13px;
+  color: #71717a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.template-minimal .section-heading {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #71717a;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+/* Template 4: ATS-FRIENDLY */
+.template-ats {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000000;
+}
+.template-ats .resume-name {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.template-ats .resume-title {
+  font-size: 13px;
+  font-weight: bold;
+}
+.template-ats .section-heading {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 2px;
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+.template-ats ul {
+  padding-left: 20px;
+  margin-bottom: 6px;
+}
+.template-ats li {
+  margin-bottom: 3px;
+}
+
+/* Toast container */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 380px;
+}
+
+.custom-toast {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-left: 4px solid var(--accent-blue);
+  animation: slideInToast 0.3s ease-out;
+}
+
+.custom-toast.success { border-left-color: var(--success-color); }
+.custom-toast.danger { border-left-color: var(--danger-color); }
+.custom-toast.warning { border-left-color: var(--warning-color); }
+.custom-toast.info { border-left-color: var(--info-color); }
+
+@keyframes slideInToast {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Footer */
+footer {
+  background: #ffffff;
+  border-top: 1px solid var(--border-color);
+  padding: 2.5rem 0 1.5rem;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+/* Print CSS for A4 PDF and browser printing */
+@media print {
+  body {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .navbar, footer, .no-print, .btn, .alert, #toast-container, .modal {
+    display: none !important;
+  }
+  .resume-paper {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm 12mm 15mm;
+  }
+}

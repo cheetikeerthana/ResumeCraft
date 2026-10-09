@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help & Viva Preparation Guide — ResumeCraft</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-light">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-resumecraft sticky-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-logo" href="/index.html">
+        <div class="brand-icon"><i class="bi bi-file-earmark-person-fill"></i></div>
+        Resume<span class="brand-accent">Craft</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
+          <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/templates.html">Templates</a></li>
+          <li class="nav-item"><a class="nav-link" href="/resume-assistant.html">AI Assistant</a></li>
+          <li class="nav-item"><a class="nav-link" href="/applications.html">Job Tracker</a></li>
+          <li class="nav-item"><a class="nav-link" href="/jobs.html">Career Resources</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/help.html">Help & Viva Guide</a></li>
+        </ul>
+        <div class="d-flex align-items-center" id="nav-auth-buttons">
+          <!-- Populated by common.js -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5" style="max-width: 960px;">
+
+    <div class="text-center mb-5">
+      <span class="badge bg-success-subtle text-success fw-semibold px-3 py-2 mb-2">Documentation & Viva Toolkit</span>
+      <h2 class="fw-bold">User Guide & Viva Defense Guide</h2>
+      <p class="text-muted mx-auto" style="max-width: 650px;">
+        Everything required to demonstrate the application to examiners, explain architectural choices, and master web technology concepts.
+      </p>
+    </div>
+
+    <!-- Quick User Guide -->
+    <div class="card-custom p-4 bg-white mb-5">
+      <h4 class="fw-bold text-navy mb-3"><i class="bi bi-journal-text me-2 text-primary"></i>Quick User Guide</h4>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="p-3 bg-light rounded border h-100">
+            <h6 class="fw-bold">1. Creating & Editing Resumes</h6>
+            <p class="small text-muted mb-0">From the Dashboard, click <strong>Create New Resume</strong>. In the Builder, fill in personal details, education, experience, and skills. All changes autosave to MySQL after 1.2s of typing, or click the explicit <strong>Save</strong> button.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-3 bg-light rounded border h-100">
+            <h6 class="fw-bold">2. Switching Templates</h6>
+            <p class="small text-muted mb-0">Select any of the 4 templates (Modern, Professional, Minimal, ATS-Friendly) from the top bar dropdown. Your content stays intact, and the live preview updates immediately.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-3 bg-light rounded border h-100">
+            <h6 class="fw-bold">3. Resume Quality Assistant</h6>
+            <p class="small text-muted mb-0">Navigate to <strong>AI Assistant</strong> to inspect your Quality Score (0-100), identify passive wording, and paste real job postings to calculate keyword match percentages.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-3 bg-light rounded border h-100">
+            <h6 class="fw-bold">4. Exporting to PDF & Print</h6>
+            <p class="small text-muted mb-0">Click <strong>Download PDF</strong> for a high-resolution vector PDF generated server-side by PDFKit, or click <strong>Print A4</strong> to preview clean printer-ready pages.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- College Viva Defense Questions & Answers -->
+    <div class="card-custom p-4 bg-white mb-5 border-start border-4 border-primary">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h4 class="fw-bold text-navy mb-1"><i class="bi bi-mortarboard-fill me-2 text-primary"></i>Faculty Viva Voce Defense Guide</h4>
+          <div class="text-muted small">Common questions examiners ask and the technical rationale implemented in ResumeCraft.</div>
+        </div>
+        <span class="badge bg-primary">Viva Ready</span>
+      </div>
+
+      <div class="accordion" id="vivaAccordion">
+
+        <!-- Q1 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#viva1">
+              Q1: Why did you choose session-based authentication with MySQL persistence over JWT?
+            </button>
+          </h2>
+          <div id="viva1" class="accordion-collapse collapse show" data-bs-parent="#vivaAccordion">
+            <div class="accordion-body small text-muted">
+              <strong>Answer:</strong> Session-based authentication stored in a persistent MySQL store (`express-mysql-session`) provides immediate server-side revocation capabilities. If a user logs out or deletes their account, the session is invalidated instantly in the database, preventing replay attacks. Furthermore, HTTP-only, SameSite cookies cannot be accessed by client-side JavaScript, offering superior defense against XSS token exfiltration compared to storing JWTs in `localStorage`.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#viva2">
+              Q2: Why use a normalized relational MySQL schema with 13 tables instead of storing resume data in a single JSON document?
+            </button>
+          </h2>
+          <div id="viva2" class="accordion-collapse collapse" data-bs-parent="#vivaAccordion">
+            <div class="accordion-body small text-muted">
+              <strong>Answer:</strong> A normalized schema enforces relational integrity, column-level typing, foreign key constraints with `ON DELETE CASCADE`, and granular indexing. For instance, querying student GPA distributions, indexing skills across resumes, or updating a single education record does not require serializing and deserializing a massive JSON payload. Multi-table transactions (`withTransaction` in `db.js`) guarantee atomic consistency when duplicating resumes or managing versions.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#viva3">
+              Q3: How is Cross-Site Request Forgery (CSRF) prevented in this application?
+            </button>
+          </h2>
+          <div id="viva3" class="accordion-collapse collapse" data-bs-parent="#vivaAccordion">
+            <div class="accordion-body small text-muted">
+              <strong>Answer:</strong> We implement custom CSRF defense in `middleware/csrf.js`. The server assigns a cryptographically random token (`crypto.randomBytes(32)`) attached to the authenticated session and exposes it via an `XSRF-TOKEN` cookie. All state-mutating requests (`POST`, `PUT`, `DELETE`) require the client to supply this token in the `X-CSRF-Token` header. Because malicious cross-origin requests cannot read or attach this header due to the browser's Same-Origin Policy, forged requests are rejected with HTTP 403 Forbidden.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#viva4">
+              Q4: How do you prevent brute force attacks on authentication?
+            </button>
+          </h2>
+          <div id="viva4" class="accordion-collapse collapse" data-bs-parent="#vivaAccordion">
+            <div class="accordion-body small text-muted">
+              <strong>Answer:</strong> We configure `express-rate-limit` on the `/api/auth/login` and `/api/auth/register` endpoints. It limits clients to a maximum of 20 authentication attempts per 15-minute window per IP address. When exceeded, the API returns HTTP 429 Too Many Requests with informative retry headers (`RateLimit-Reset`), stopping credential stuffing attacks.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#viva5">
+              Q5: What makes the ATS-Friendly template distinct from the other designs?
+            </button>
+          </h2>
+          <div id="viva5" class="accordion-collapse collapse" data-bs-parent="#vivaAccordion">
+            <div class="accordion-body small text-muted">
+              <strong>Answer:</strong> Automated Applicant Tracking Systems (ATS) utilize OCR parsers that often get confused by multi-column layouts, floating graphic icons, text frames, or complex HTML tables. The ATS-Friendly template uses a strict single-column flow, standard semantic heading names (EDUCATION, EXPERIENCE, SKILLS), standard bullet characters, high contrast black-and-white text, and system fonts (Arial/Helvetica), guaranteeing clean sequential machine parsing without lost sections.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#viva6">
+              Q6: How does the offline rule-based assistant compare to the optional AI integration?
+            </button>
+          </h2>
+          <div id="viva6" class="accordion-collapse collapse" data-bs-parent="#vivaAccordion">
+            <div class="accordion-body small text-muted">
+              <strong>Answer:</strong> The application does not depend on cloud AI services to function. The offline rule-based engine inspects the resume using deterministic algorithms: parsing action verbs from a curated dictionary of 60+ verbs, scanning regex patterns for quantifiable metrics (`\d+%`), and cross-referencing tech keywords. When `GEMINI_API_KEY` is provided in `.env`, the server queries the Google Gemini API to offer AI summary rewrites. If the key is absent or unreachable, the system gracefully informs the user and continues providing full rule-based analysis without simulated or fabricated claims.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Health Check & Live Endpoints -->
+    <div class="card-custom p-4 bg-white mb-4">
+      <h5 class="fw-bold text-navy mb-3"><i class="bi bi-activity me-2 text-primary"></i>Examiner Verification Endpoints</h5>
+      <p class="text-muted small mb-3">You can demonstrate backend health and direct MySQL connectivity to examiners using these live endpoints:</p>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="/api/health" target="_blank" class="btn btn-sm btn-outline-primary">
+          <i class="bi bi-heart-pulse me-1"></i>GET /api/health
+        </a>
+        <a href="/api/db-test" target="_blank" class="btn btn-sm btn-outline-success">
+          <i class="bi bi-database-check me-1"></i>GET /api/db-test
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="text-center text-muted small py-3 mt-auto">
+    &copy; 2026 ResumeCraft &bull; College Web Technologies Project
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/common.js"></script>
+</body>
+</html>

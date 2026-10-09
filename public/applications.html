@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Tracker — ResumeCraft</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-light">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-resumecraft sticky-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-logo" href="/index.html">
+        <div class="brand-icon"><i class="bi bi-file-earmark-person-fill"></i></div>
+        Resume<span class="brand-accent">Craft</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
+          <li class="nav-item"><a class="nav-link" href="/dashboard.html"><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="/templates.html"><i class="bi bi-grid me-1"></i>Templates</a></li>
+          <li class="nav-item"><a class="nav-link" href="/resume-assistant.html"><i class="bi bi-magic me-1"></i>AI Assistant</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/applications.html"><i class="bi bi-briefcase me-1"></i>Job Tracker</a></li>
+          <li class="nav-item"><a class="nav-link" href="/jobs.html"><i class="bi bi-compass me-1"></i>Career Resources</a></li>
+        </ul>
+        <div class="d-flex align-items-center" id="nav-auth-buttons">
+          <!-- Populated by common.js -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+
+    <!-- Header & Action -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+      <div>
+        <h2 class="fw-bold mb-1"><i class="bi bi-briefcase-fill me-2 text-primary"></i>Job Application Tracker</h2>
+        <div class="text-muted small">
+          Track interview stages, application dates, and offer letters across your employment pursuits.
+        </div>
+      </div>
+
+      <button class="btn btn-resumecraft-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#addAppModal">
+        <i class="bi bi-plus-lg me-1"></i>Add Application
+      </button>
+    </div>
+
+    <!-- Stats Badges Bar -->
+    <div class="row g-3 mb-4">
+      <div class="col-md-2 col-4">
+        <div class="p-3 bg-white rounded border text-center shadow-sm">
+          <div class="text-muted small">Total</div>
+          <h4 class="fw-bold mb-0 text-dark" id="stat-total">0</h4>
+        </div>
+      </div>
+      <div class="col-md-2 col-4">
+        <div class="p-3 bg-white rounded border text-center shadow-sm">
+          <div class="text-muted small">Applied</div>
+          <h4 class="fw-bold mb-0 text-primary" id="stat-applied">0</h4>
+        </div>
+      </div>
+      <div class="col-md-2 col-4">
+        <div class="p-3 bg-white rounded border text-center shadow-sm">
+          <div class="text-muted small">Interview</div>
+          <h4 class="fw-bold mb-0 text-purple" style="color: #7c3aed;" id="stat-interview">0</h4>
+        </div>
+      </div>
+      <div class="col-md-2 col-4">
+        <div class="p-3 bg-white rounded border text-center shadow-sm">
+          <div class="text-muted small">Offer</div>
+          <h4 class="fw-bold mb-0 text-success" id="stat-offer">0</h4>
+        </div>
+      </div>
+      <div class="col-md-2 col-4">
+        <div class="p-3 bg-white rounded border text-center shadow-sm">
+          <div class="text-muted small">Rejected</div>
+          <h4 class="fw-bold mb-0 text-danger" id="stat-rejected">0</h4>
+        </div>
+      </div>
+      <div class="col-md-2 col-4">
+        <div class="p-3 bg-white rounded border text-center shadow-sm">
+          <div class="text-muted small">Saved</div>
+          <h4 class="fw-bold mb-0 text-secondary" id="stat-saved">0</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters & Search Toolbar -->
+    <div class="card-custom p-3 bg-white mb-4">
+      <div class="row g-2 align-items-center">
+        <div class="col-md-5">
+          <div class="input-group input-group-sm">
+            <span class="input-group-text bg-light"><i class="bi bi-search"></i></span>
+            <input type="text" id="filter-search" class="form-control" placeholder="Search by company, role, or location...">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="d-flex align-items-center gap-1">
+            <label class="small text-muted fw-semibold">Status:</label>
+            <select id="filter-status" class="form-select form-select-sm">
+              <option value="">All Statuses</option>
+              <option value="Applied">Applied</option>
+              <option value="Interview">Interview</option>
+              <option value="Offer">Offer</option>
+              <option value="Rejected">Rejected</option>
+              <option value="Saved">Saved</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="d-flex align-items-center gap-1">
+            <label class="small text-muted fw-semibold">Sort:</label>
+            <select id="filter-sort" class="form-select form-select-sm">
+              <option value="desc">Date (Newest First)</option>
+              <option value="asc">Date (Oldest First)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Applications Table Card -->
+    <div class="card-custom bg-white p-4">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light small text-muted text-uppercase">
+            <tr>
+              <th>Company</th>
+              <th>Position & Link</th>
+              <th>Location</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Notes</th>
+              <th class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="applications-tbody">
+            <!-- Populated by applications.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div id="applications-empty-state" class="text-center py-5 d-none">
+        <div class="brand-icon mx-auto mb-3" style="width: 50px; height: 50px; font-size: 1.5rem;">
+          <i class="bi bi-inbox"></i>
+        </div>
+        <h5 class="fw-bold">No Applications Found</h5>
+        <p class="text-muted small">No job applications match the selected criteria or none have been added yet.</p>
+        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addAppModal">
+          Add New Application
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ========================================================
+       MODALS: ADD, EDIT, DELETE APPLICATION
+       ======================================================== -->
+
+  <!-- Add Application Modal -->
+  <div class="modal fade" id="addAppModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title fw-bold"><i class="bi bi-briefcase me-2 text-primary"></i>Add Job Application</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="form-add-application">
+          <div class="modal-body p-4">
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Company Name *</label>
+              <input type="text" id="add_app_company" class="form-control" required placeholder="e.g. Google, Microsoft, Accenture">
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Job Title *</label>
+              <input type="text" id="add_app_title" class="form-control" required placeholder="Software Engineer / Web Developer">
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Location</label>
+                <input type="text" id="add_app_location" class="form-control" placeholder="Hyderabad, India / Remote">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Application Date</label>
+                <input type="date" id="add_app_date" class="form-control">
+              </div>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Status *</label>
+                <select id="add_app_status" class="form-select">
+                  <option value="Applied" selected>Applied</option>
+                  <option value="Interview">Interview</option>
+                  <option value="Offer">Offer</option>
+                  <option value="Rejected">Rejected</option>
+                  <option value="Saved">Saved</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Job Posting URL</label>
+                <input type="url" id="add_app_url" class="form-control" placeholder="https://careers.google.com/...">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Notes / Follow-up details</label>
+              <textarea id="add_app_notes" class="form-control" rows="2" placeholder="Submitted tailored resume via campus portal. Round 1 next week."></textarea>
+            </div>
+          </div>
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Application</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Application Modal -->
+  <div class="modal fade" id="editAppModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title fw-bold"><i class="bi bi-pencil-square me-2 text-primary"></i>Edit Application</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="form-edit-application">
+          <div class="modal-body p-4">
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Company Name *</label>
+              <input type="text" id="edit_app_company" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Job Title *</label>
+              <input type="text" id="edit_app_title" class="form-control" required>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Location</label>
+                <input type="text" id="edit_app_location" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Application Date</label>
+                <input type="date" id="edit_app_date" class="form-control">
+              </div>
+            </div>
+            <div class="row g-2 mb-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Status *</label>
+                <select id="edit_app_status" class="form-select">
+                  <option value="Applied">Applied</option>
+                  <option value="Interview">Interview</option>
+                  <option value="Offer">Offer</option>
+                  <option value="Rejected">Rejected</option>
+                  <option value="Saved">Saved</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Job Posting URL</label>
+                <input type="url" id="edit_app_url" class="form-control">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Notes</label>
+              <textarea id="edit_app_notes" class="form-control" rows="2"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Update Application</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal fade" id="deleteAppModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title fw-bold"><i class="bi bi-trash-fill me-2"></i>Delete Application</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          Are you sure you want to delete the job application for <strong id="delete-app-company">this company</strong>?
+        </div>
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="btn-confirm-delete-app">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center text-muted small py-3 mt-auto">
+    &copy; 2026 ResumeCraft &bull; College Web Technologies Project
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/applications.js"></script>
+</body>
+</html>

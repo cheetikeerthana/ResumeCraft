@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResumeCraft — AI-Powered Resume Builder & Career Assistant</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-resumecraft sticky-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-logo" href="/index.html">
+        <div class="brand-icon"><i class="bi bi-file-earmark-person-fill"></i></div>
+        Resume<span class="brand-accent">Craft</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
+          <li class="nav-item"><a class="nav-link active" href="/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/templates.html">Templates</a></li>
+          <li class="nav-item"><a class="nav-link" href="/resume-assistant.html">AI Assistant</a></li>
+          <li class="nav-item"><a class="nav-link" href="/jobs.html">Career Resources</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/help.html">Help & Viva Guide</a></li>
+        </ul>
+        <div class="d-flex align-items-center" id="nav-auth-buttons">
+          <a href="/login.html" class="btn btn-outline-primary me-2">Log In</a>
+          <a href="/register.html" class="btn btn-resumecraft-primary">Create Account</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <div class="hero-badge">
+            <i class="bi bi-stars me-2"></i>Full-Stack AI Career Suite &bull; Web Technologies Project
+          </div>
+          <h1 class="hero-title mb-3">
+            Build a Resume That <span class="text-primary">Opens Doors</span>
+          </h1>
+          <p class="hero-subtitle mb-4">
+            Empowering students, fresh graduates, and ambitious job seekers to craft ATS-optimized, high-impact resumes. Backed by relational MySQL persistence, automated quality scoring, and structured career application tracking.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="/register.html" class="btn btn-resumecraft-primary btn-lg px-4">
+              <i class="bi bi-file-earmark-plus me-2"></i>Create My Resume
+            </a>
+            <a href="/templates.html" class="btn btn-resumecraft-outline btn-lg px-4">
+              <i class="bi bi-grid me-2"></i>Explore Templates
+            </a>
+          </div>
+          <div class="d-flex align-items-center gap-4 mt-4 pt-2 text-muted small">
+            <div><i class="bi bi-shield-check text-success me-1"></i> 100% Free & Open-Source</div>
+            <div><i class="bi bi-database-check text-primary me-1"></i> Relational MySQL Database</div>
+            <div><i class="bi bi-filetype-pdf text-danger me-1"></i> Clean A4 Multi-Page PDF</div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <!-- Visual Resume Interactive Preview Card -->
+          <div class="card-custom p-4 bg-white position-relative shadow-lg border-primary border-opacity-25">
+            <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-primary">Modern Template</span>
+                <span class="badge bg-success-subtle text-success border border-success-subtle">ATS Score: 95%</span>
+              </div>
+              <span class="text-muted small"><i class="bi bi-check-all text-primary"></i> Synced to DB</span>
+            </div>
+
+            <!-- Mini Resume Mockup -->
+            <div class="p-3 bg-light rounded border">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <h5 class="fw-bold mb-0 text-navy">GAYATHRI BUDARPU</h5>
+                  <small class="text-primary fw-semibold">Full-Stack Software Engineer</small>
+                </div>
+                <small class="text-muted text-end">Hyderabad, India<br>demo@resumecraft.com</small>
+              </div>
+              <hr class="my-2">
+              <div class="small text-muted mb-2" style="font-size: 0.75rem; line-height: 1.4;">
+                Results-driven Computer Science graduate skilled in Node.js, Express, MySQL, and responsive frontend architectures. Built scalable academic systems and high-throughput web portals.
+              </div>
+              <div class="fw-bold small text-uppercase text-secondary" style="font-size: 0.7rem; border-bottom: 1px solid #ccc; padding-bottom: 2px;">Core Skills</div>
+              <div class="d-flex flex-wrap gap-1 mt-1 mb-2">
+                <span class="badge bg-white text-dark border" style="font-size: 0.65rem;">JavaScript ES6+</span>
+                <span class="badge bg-white text-dark border" style="font-size: 0.65rem;">Node.js / Express</span>
+                <span class="badge bg-white text-dark border" style="font-size: 0.65rem;">MySQL Relational</span>
+                <span class="badge bg-white text-dark border" style="font-size: 0.65rem;">Bootstrap 5</span>
+              </div>
+              <div class="fw-bold small text-uppercase text-secondary" style="font-size: 0.7rem; border-bottom: 1px solid #ccc; padding-bottom: 2px;">Experience</div>
+              <div style="font-size: 0.72rem;" class="mt-1">
+                <strong>Apex Cloud Solutions</strong> &bull; <span class="text-muted">Web Dev Intern (2025)</span>
+                <div class="text-muted">• Engineered 12+ RESTful APIs with transactional database integrity.</div>
+              </div>
+            </div>
+
+            <div class="mt-3 text-center">
+              <small class="text-muted"><i class="bi bi-magic me-1 text-primary"></i> Real-time preview updates instantly as you type.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-Step Guided Workflow -->
+  <section class="py-5 bg-white border-bottom">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-2">Three Simple Steps to Career Readiness</h2>
+      <p class="text-muted mb-5">Create a polished, recruiter-ready resume in minutes without design headaches.</p>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="p-4 rounded-4 bg-light h-100">
+            <div class="brand-icon mx-auto mb-3" style="width: 52px; height: 52px; font-size: 1.5rem;">
+              <i class="bi bi-input-cursor-text"></i>
+            </div>
+            <h5 class="fw-bold">1. Enter Your Details</h5>
+            <p class="text-muted small">Add your education, internships, skills, and projects with guided prompts and validation.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 rounded-4 bg-light h-100">
+            <div class="brand-icon mx-auto mb-3" style="width: 52px; height: 52px; font-size: 1.5rem;">
+              <i class="bi bi-layout-text-window-reverse"></i>
+            </div>
+            <h5 class="fw-bold">2. Choose Your Template</h5>
+            <p class="text-muted small">Switch between Modern, Professional, Minimal, and ATS-Friendly designs without losing content.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 rounded-4 bg-light h-100">
+            <div class="brand-icon mx-auto mb-3" style="width: 52px; height: 52px; font-size: 1.5rem;">
+              <i class="bi bi-cloud-arrow-down-fill"></i>
+            </div>
+            <h5 class="fw-bold">3. Review & Download</h5>
+            <p class="text-muted small">Evaluate with the quality assistant, match keywords against job postings, and export clean A4 PDFs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Highlights -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-2 mb-2">Engineered For Excellence</span>
+        <h2 class="fw-bold">Comprehensive Full-Stack Features</h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-custom p-4 h-100">
+            <div class="stat-icon blue mb-3"><i class="bi bi-database-fill"></i></div>
+            <h5 class="fw-bold">Relational MySQL Schema</h5>
+            <p class="text-muted small">All sections (education, experience, skills, projects) are structured in normalized SQL tables with foreign key cascades, transactions, and indexing.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom p-4 h-100">
+            <div class="stat-icon purple mb-3"><i class="bi bi-robot"></i></div>
+            <h5 class="fw-bold">Resume Quality Assistant</h5>
+            <p class="text-muted small">Automated scoring analyzing impact verbs, quantifiable metrics, and job description alignment with zero fluff and offline deterministic fallback.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom p-4 h-100">
+            <div class="stat-icon green mb-3"><i class="bi bi-briefcase-fill"></i></div>
+            <h5 class="fw-bold">Job Application Tracker</h5>
+            <p class="text-muted small">Track your job applications from Saved to Applied, Interview, Offer, and Rejected with search, status filtering, and career analytics.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom p-4 h-100">
+            <div class="stat-icon amber mb-3"><i class="bi bi-shield-lock-fill"></i></div>
+            <h5 class="fw-bold">Session Security & CSRF</h5>
+            <p class="text-muted solid small">Persistent MySQL-backed sessions, rate-limited authentication, bcrypt password hashing, CSRF defense, and strict user-ownership validation.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom p-4 h-100">
+            <div class="stat-icon blue mb-3"><i class="bi bi-file-pdf-fill"></i></div>
+            <h5 class="fw-bold">Reliable PDF & Print Engine</h5>
+            <p class="text-muted small">Server-side PDFKit vector PDF compilation combined with print-optimized A4 stylesheets so your resume looks sharp on screens and paper alike.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom p-4 h-100">
+            <div class="stat-icon green mb-3"><i class="bi bi-mortarboard-fill"></i></div>
+            <h5 class="fw-bold">Tailored For Students</h5>
+            <p class="text-muted small">Highlighted education, projects, certifications, and technical skills so fresh graduates can shine without mandatory years of corporate experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Templates Preview Showcase -->
+  <section class="py-5 bg-white border-top border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-4">
+        <div>
+          <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-2 mb-2">Designed For Recruiters</span>
+          <h2 class="fw-bold mb-0">Four Distinct Professional Templates</h2>
+        </div>
+        <a href="/templates.html" class="btn btn-outline-primary mt-2 mt-md-0">View All Template Details <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-3 col-sm-6">
+          <div class="card-custom p-3 text-center h-100 border-top border-4 border-primary">
+            <div class="p-3 bg-light rounded mb-3" style="min-height: 140px; display: flex; flex-direction: column; justify-content: center;">
+              <div class="fw-bold text-primary">MODERN</div>
+              <small class="text-muted">Contemporary layout with colored headers & skills chips</small>
+            </div>
+            <h6 class="fw-bold mb-1">Modern Template</h6>
+            <p class="text-muted small mb-3">Ideal for software engineers, tech roles, and campus drives.</p>
+            <a href="/templates.html" class="btn btn-sm btn-outline-primary w-100">Inspect Template</a>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="card-custom p-3 text-center h-100 border-top border-4 border-dark">
+            <div class="p-3 bg-light rounded mb-3" style="min-height: 140px; display: flex; flex-direction: column; justify-content: center;">
+              <div class="fw-bold text-dark font-serif" style="font-family: Georgia, serif;">PROFESSIONAL</div>
+              <small class="text-muted">Classic serif style, centered headings & formal dividers</small>
+            </div>
+            <h6 class="fw-bold mb-1">Professional Template</h6>
+            <p class="text-muted small mb-3">Tailored for corporate, consulting, finance, and enterprise.</p>
+            <a href="/templates.html" class="btn btn-sm btn-outline-primary w-100">Inspect Template</a>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="card-custom p-3 text-center h-100 border-top border-4 border-secondary">
+            <div class="p-3 bg-light rounded mb-3" style="min-height: 140px; display: flex; flex-direction: column; justify-content: center;">
+              <div class="fw-bold text-secondary">MINIMAL</div>
+              <small class="text-muted">Clean whitespace, elegant typography & understated lines</small>
+            </div>
+            <h6 class="fw-bold mb-1">Minimal Template</h6>
+            <p class="text-muted small mb-3">Great for product managers, researchers, and designers.</p>
+            <a href="/templates.html" class="btn btn-sm btn-outline-primary w-100">Inspect Template</a>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="card-custom p-3 text-center h-100 border-top border-4 border-black">
+            <div class="p-3 bg-light rounded mb-3" style="min-height: 140px; display: flex; flex-direction: column; justify-content: center;">
+              <div class="fw-bold text-black font-monospace">ATS-FRIENDLY</div>
+              <small class="text-muted">Single-column, standard semantic hierarchy, zero parsing traps</small>
+            </div>
+            <h6 class="fw-bold mb-1">ATS-Friendly Template</h6>
+            <p class="text-muted small mb-3">Engineered for corporate applicant tracking systems and portals.</p>
+            <a href="/templates.html" class="btn btn-sm btn-outline-primary w-100">Inspect Template</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="py-5">
+    <div class="container" style="max-width: 800px;">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Frequently Asked Questions</h2>
+        <p class="text-muted">Everything you need to know about ResumeCraft and its academic implementation.</p>
+      </div>
+
+      <div class="accordion shadow-sm" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              Can I save and manage multiple resumes simultaneously?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              Yes! ResumeCraft supports unlimited independent resumes per account. You can create specialized versions tailored to different job profiles (e.g. Frontend Engineer vs Backend Developer), duplicate them with one click, and switch templates without losing content.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              How does the resume quality assistant evaluate my resume?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              Our assistant calculates a 0-100 Quality Score across four clear dimensions: Completeness, Impact & Action Verbs, Skills & Profiles, and Structure. It flags passive phrasing (e.g. "helped with"), suggests powerful action verbs ("architected", "engineered"), and compares your text against pasted job descriptions to highlight missing target keywords.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              Does the application work offline or without an AI API key?
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              Absolutely. ResumeCraft contains an intelligent, deterministic rule-based analysis engine that operates 100% locally. If an external Google Gemini API key is configured, optional AI features are enabled; otherwise, the app seamlessly provides comprehensive rule-based feedback clearly labeled as offline-ready.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+              How is my data stored and secured?
+            </button>
+          </h2>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              Data is stored in a normalized MySQL database with relational integrity and cascading foreign keys. Authentication uses bcrypt salted hashing and persistent sessions in MySQL. Cross-site request forgery (CSRF) protection, express-rate-limit brute force defense, and strict server-side user ID verification prevent unauthorized cross-user access.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-5 text-center text-white" style="background: linear-gradient(135deg, var(--primary-navy), var(--secondary-navy));">
+    <div class="container py-3">
+      <h2 class="fw-bold mb-3">Ready to Launch Your Career Journey?</h2>
+      <p class="text-light opacity-75 mb-4 mx-auto" style="max-width: 600px;">Join thousands of students and job seekers who build professional, recruiter-ready resumes with ResumeCraft.</p>
+      <a href="/register.html" class="btn btn-primary btn-lg px-5 fw-semibold shadow">
+        Create Your Free Account Now <i class="bi bi-arrow-right ms-2"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row g-4 mb-4">
+        <div class="col-md-4">
+          <div class="navbar-brand-logo mb-2">
+            <div class="brand-icon"><i class="bi bi-file-earmark-person-fill"></i></div>
+            Resume<span class="brand-accent">Craft</span>
+          </div>
+          <p class="text-muted small">AI-Powered Resume Builder & Career Assistant. Developed as a college Web Technologies project demonstrating full-stack engineering with Node.js, Express, and MySQL.</p>
+        </div>
+        <div class="col-md-2 col-6">
+          <h6 class="fw-bold">Product</h6>
+          <ul class="list-unstyled small text-muted">
+            <li class="mb-1"><a href="/templates.html">Resume Templates</a></li>
+            <li class="mb-1"><a href="/resume-assistant.html">Quality Assistant</a></li>
+            <li class="mb-1"><a href="/applications.html">Application Tracker</a></li>
+            <li class="mb-1"><a href="/jobs.html">Career Hub</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-6">
+          <h6 class="fw-bold">Project Info</h6>
+          <ul class="list-unstyled small text-muted">
+            <li class="mb-1"><a href="/about.html">About Project</a></li>
+            <li class="mb-1"><a href="/help.html">Viva Guide & FAQ</a></li>
+            <li class="mb-1"><a href="/api/health" target="_blank">System Health</a></li>
+            <li class="mb-1"><a href="/api/db-test" target="_blank">DB Test</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6 class="fw-bold">Technology Stack</h6>
+          <div class="d-flex flex-wrap gap-1 mt-2">
+            <span class="badge bg-light text-dark border">Node.js</span>
+            <span class="badge bg-light text-dark border">Express.js</span>
+            <span class="badge bg-light text-dark border">MySQL 8.4</span>
+            <span class="badge bg-light text-dark border">Bootstrap 5</span>
+            <span class="badge bg-light text-dark border">PDFKit</span>
+            <span class="badge bg-light text-dark border">bcryptjs</span>
+            <span class="badge bg-light text-dark border">express-session</span>
+          </div>
+        </div>
+      </div>
+      <div class="border-top pt-3 d-flex flex-wrap justify-content-between align-items-center text-muted small">
+        <div>&copy; 2026 ResumeCraft &bull; College Web Technologies Project by Gayathri Budarpu.</div>
+        <div>All rights reserved. Designed for academic and career excellence.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Common Client Script -->
+  <script src="/js/common.js"></script>
+</body>
+</html>
